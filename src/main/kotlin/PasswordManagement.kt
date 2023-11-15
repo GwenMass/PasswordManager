@@ -8,7 +8,7 @@ import javax.crypto.spec.SecretKeySpec
 
 class PasswordManagement {
     private var passwordDatabase = mutableSetOf<Password>()
-    private val masterPass = "do7Pequ2"
+    private val masterPass = "Admin"
     private val file = File("Database.CSV")
     //initalizer
     init{
