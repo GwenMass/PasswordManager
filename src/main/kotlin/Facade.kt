@@ -53,6 +53,31 @@ class Facade {
             }
         }
     }
+
+    //handles the user interaction to remove a entry
+    fun removeEntry()
+    {
+        var validated : Boolean = false
+        var userInput : String = ""
+        //validate using the master password
+        while (!validated)
+        {
+            println("Enter Master Password")
+            userInput = readln()
+            if(!manager.verifyIdentity(userInput)){println("Incorrect master password.")} else {validated = true}
+        }
+        println("Which entry would you like to remove? Enter the name of the website")
+        manager.displaySites()
+        println()
+        userInput = readln()
+        //check if site in database
+        if (manager.selectTuple(userInput) == null) {println("Could not find entry")}
+        else
+        {
+            manager.removeTuple(manager.selectTuple(userInput)!!)
+        }
+    }
+
     //handles the user interaction to modify an entry
     fun modifyEntry()
     {

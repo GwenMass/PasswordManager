@@ -3,10 +3,10 @@ import java.io.FileOutputStream
 import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
 import javax.crypto.*
-import java.util.Base64
-import javax.crypto.spec.SecretKeySpec
 
-class PasswordManagement {
+
+class
+PasswordManagement {
     private var passwordDatabase = mutableSetOf<Password>()
     private val masterPass = "Admin"
     private val file = File("Database.CSV")
@@ -63,6 +63,9 @@ class PasswordManagement {
         for (passwords in passwordDatabase)
             println(passwords.website)
     }
+
+    //removes a tuple from the dataset
+    fun removeTuple(entry: Password) { passwordDatabase.remove(entry) }
 
     //adds a tuple to the dataset
     fun addTuple(encryptedPassword: ByteArray, siteName: String, passkey: SecretKey) {
